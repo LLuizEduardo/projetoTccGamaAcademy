@@ -28,7 +28,7 @@
 # Comandos para migração:
 ``` bash
 dotnet tool install --global dotnet-ef
-dotnet ef migrations add CarroAdd
+dotnet ef migrations add VagaAdd
 dotnet ef database update
 ```
 
@@ -46,4 +46,13 @@ dotnet aspnet-codegenerator controller -name VagasController -m Vaga -dc DbConte
 dotnet aspnet-codegenerator controller -name CandidatosController -m Candidato -dc DbContexto --relativeFolderPath Controllers
 
 ```
+# Abrindo o swagger
+dotnet watch run
+
+# Criar pasta Models
+incluir classes
+Candidato
+Empresa
+Vaga
+
 

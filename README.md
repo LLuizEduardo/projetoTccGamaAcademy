@@ -1,7 +1,7 @@
 # Comandos iniciais:
 ``` bash
-  mkdir aec-webapi-entity-framework
-  cd aec-webapi-entity-framework
+  mkdir projetoGamaAcademy
+  cd projetoGamaAcademy
   dotnet new webapi
 ```
 
@@ -12,7 +12,7 @@
   git commit -m "Iniciando projeto"
   code .gitignore # gerei o conteúdo para ignorar como (Windows, Linux, Mac, DotnetCore, VisualStudioCore) no link: https://www.toptal.com/developers/gitignore
   Criei o repositório e rodei os comandos
-  git remote add origin git@github.com:didox/aec-webapi-entity-framework.git
+  git remote add origin github.com/LLuizEduardo/projetoTccGamaAcademy.git
   git branch -M main
   git push -u origin main
 ```
@@ -39,9 +39,11 @@ dotnet tool install -g dotnet-aspnet-codegenerator
 
 # Gerando o scaffold de Carros
 ``` bash
-dotnet aspnet-codegenerator controller -name CarrosController -m Carro -dc DbContexto --relativeFolderPath Controllers
+dotnet aspnet-codegenerator controller -name EmpresasController -m Empresa -dc DbContexto --relativeFolderPath Controllers
 
-dotnet aspnet-codegenerator controller -name MarcasController -m Marca -dc DbContexto --relativeFolderPath Controllers
+dotnet aspnet-codegenerator controller -name VagasController -m Vaga -dc DbContexto --relativeFolderPath Controllers
+
+dotnet aspnet-codegenerator controller -name CandidatosController -m Candidato -dc DbContexto --relativeFolderPath Controllers
 
 ```
 

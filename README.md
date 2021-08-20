@@ -57,4 +57,8 @@ Empresa
 Vaga
 ```
 
+# Erros encontrados
+```
+Failed to load API definition >> undefined /swagger/v1/swagger.json
+```
 

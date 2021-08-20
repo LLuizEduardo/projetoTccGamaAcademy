@@ -37,22 +37,24 @@ dotnet ef database update
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-# Gerando o scaffold de Carros
+# Gerando o scaffolds
 ``` bash
-dotnet aspnet-codegenerator controller -name EmpresasController -m Empresa -dc DbContexto --relativeFolderPath Controllers
+dotnet aspnet-codegenerator controller -name VagasController -m Vaga -dc DbContexto --relativeFolderPathControllers
 
-dotnet aspnet-codegenerator controller -name VagasController -m Vaga -dc DbContexto --relativeFolderPath Controllers
-
-dotnet aspnet-codegenerator controller -name CandidatosController -m Candidato -dc DbContexto --relativeFolderPath Controllers
+dotnet aspnet-codegenerator controller -name CandidatosController -m Candidato -dc DbContexto--relativeFolderPath Controllers
 
 ```
 # Abrindo o swagger
+``` bash
 dotnet watch run
+```
 
 # Criar pasta Models
+```
 incluir classes
 Candidato
 Empresa
 Vaga
+```
 
 

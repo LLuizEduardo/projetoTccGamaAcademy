@@ -54,7 +54,7 @@ namespace projetoGamaAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Vaga vaga)
+        public async Task<IActionResult> Create([Bind("Id,NomeVaga,Descricao,Empresa,Segmento,Telefone,Site,Logradouro,Numero,Bairro,Cidade")] Vaga vaga)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace projetoGamaAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Vaga vaga)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NomeVaga,Descricao,Empresa,Segmento,Telefone,Site,Logradouro,Numero,Bairro,Cidade")] Vaga vaga)
         {
             if (id != vaga.Id)
             {

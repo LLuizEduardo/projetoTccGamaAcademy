@@ -22,7 +22,7 @@ namespace projetoGamaAcademy.Controllers
         // GET: Candidatos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Candidatoss.ToListAsync());
+            return View(await _context.Candidatos.ToListAsync());
         }
 
         // GET: Candidatos/Details/5
@@ -33,7 +33,7 @@ namespace projetoGamaAcademy.Controllers
                 return NotFound();
             }
 
-            var candidato = await _context.Candidatoss
+            var candidato = await _context.Candidatos
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (candidato == null)
             {
@@ -54,7 +54,7 @@ namespace projetoGamaAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Candidato candidato)
+        public async Task<IActionResult> Create([Bind("Id,Nome,CPF,Nascimento,Telefone,Email,Logradouro,Numero,Bairro,Cidade,Estado,VagaId")] Candidato candidato)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace projetoGamaAcademy.Controllers
                 return NotFound();
             }
 
-            var candidato = await _context.Candidatoss.FindAsync(id);
+            var candidato = await _context.Candidatos.FindAsync(id);
             if (candidato == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace projetoGamaAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Candidato candidato)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,CPF,Nascimento,Telefone,Email,Logradouro,Numero,Bairro,Cidade,Estado,VagaId")] Candidato candidato)
         {
             if (id != candidato.Id)
             {
@@ -124,7 +124,7 @@ namespace projetoGamaAcademy.Controllers
                 return NotFound();
             }
 
-            var candidato = await _context.Candidatoss
+            var candidato = await _context.Candidatos
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (candidato == null)
             {
@@ -139,15 +139,15 @@ namespace projetoGamaAcademy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var candidato = await _context.Candidatoss.FindAsync(id);
-            _context.Candidatoss.Remove(candidato);
+            var candidato = await _context.Candidatos.FindAsync(id);
+            _context.Candidatos.Remove(candidato);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CandidatoExists(int id)
         {
-            return _context.Candidatoss.Any(e => e.Id == id);
+            return _context.Candidatos.Any(e => e.Id == id);
         }
     }
 }

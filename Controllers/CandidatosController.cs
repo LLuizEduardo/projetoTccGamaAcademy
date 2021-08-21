@@ -11,7 +11,7 @@ using projetoGamaAcademy.Servicos;
 namespace projetoGamaAcademy.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class CandidatosController : ControllerBase
     {
         private readonly DbContexto _context;
@@ -21,13 +21,16 @@ namespace projetoGamaAcademy.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        [Route("/candidatos")]
         public async Task<IActionResult> Index()
         {
             var dbContexto = _context.Candidatos;
             return StatusCode(200, await _context.Candidatos.ToListAsync());
         }
 
-        [HttpPost]        
+        [HttpPost]
+        [Route("/candidatos")]        
         public async Task<IActionResult> Create([Bind("Id,Nome,CPF,Nascimento,Telefone,Email,Logradouro,Numero,Bairro,Cidade,Estado,VagaId")] Candidato candidato)
         {
             _context.Add(candidato);
@@ -35,7 +38,8 @@ namespace projetoGamaAcademy.Controllers
             return StatusCode(201, candidato);
         }
 
-        [HttpPut]        
+        [HttpPut]       
+        [Route("/candidatos/{id}")] 
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,CPF,Nascimento,Telefone,Email,Logradouro,Numero,Bairro,Cidade,Estado,VagaId")] Candidato candidato)
         {
             if (id != candidato.Id)
@@ -63,8 +67,18 @@ namespace projetoGamaAcademy.Controllers
             return StatusCode(200, candidato);                      
         }
 
-        [HttpDelete, ActionName("Delete")]        
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpGet]
+        [Route("/candidatos/{id}")]        
+        public async Task<Candidato> Get(int id)
+        {
+            return await _context.Candidatos.FindAsync(id);                     
+        }
+
+
+
+        [HttpDelete]
+        [Route("/candidatos/{id}")]        
+        public async Task<IActionResult> Delete(int id)
         {
             var candidato = await _context.Candidatos.FindAsync(id);
             _context.Candidatos.Remove(candidato);

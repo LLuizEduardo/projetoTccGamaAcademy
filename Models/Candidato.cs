@@ -61,6 +61,9 @@ namespace projetoGamaAcademy.Models
     [Required]
     public string Estado { get;set; }
 
+    //[JsonIgnore]
+    //public Vaga vaga { get; set; }
+
     [Column("vaga_id")]
     [Required]
     [ForeignKey("VagaId")]
